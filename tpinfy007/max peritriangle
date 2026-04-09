@@ -1,0 +1,16 @@
+def maximumPerimeterTriangle(sticks):
+    # Step 1: sort the array
+    sticks.sort()
+    
+    # Step 2: start from the end (largest values)
+    for i in range(len(sticks) - 1, 1, -1):
+        a = sticks[i-2]
+        b = sticks[i-1]
+        c = sticks[i]
+        
+        # Step 3: check triangle condition
+        if a + b > c:
+            return [a, b, c]   # valid triangle with max perimeter
+    
+    # Step 4: if no triangle possible
+    return [-1]
